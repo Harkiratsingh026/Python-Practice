@@ -9,6 +9,22 @@ class Tree:
     def __init__(self):
         self.head=None;
 
+    def search(self,node,data):
+        count=0;
+        while(node is not None):
+            if (node.value==data):
+                count=1;
+            elif(data<node.value):
+                node=node.left;
+            elif(data>node.value):
+                node=node.right;
+            if(count==1):
+                print("Value Found");
+                return;
+        print("Value Not Found");
+            
+        
+
     def add(self,data):
         newnode=node(data);
         hd=self.head;
@@ -73,4 +89,6 @@ if __name__=='__main__':
     bst.inorder(bst.head);
     print("Post-Order Traversal:");
     bst.postorder(bst.head);
+    a=int(input("Enter the Value You want to search:"));
+    bst.search(bst.head,a);
     
